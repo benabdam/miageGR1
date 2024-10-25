@@ -4,7 +4,7 @@ on:
 
 jobs:
   job1:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     name: build
     steps:
       - uses: actions/checkout@v2
@@ -14,11 +14,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-          
-      - name: Grant execute permission for Gradle wrapper
-        run: chmod +x ./gradlew
-
+      
       - name: Build and test
         run: |
-          export SHELL=/bin/bash
-          ./gradlew build
+          ./gradlew.bat build
